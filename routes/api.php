@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/', function () {
+Route::get('/version', function () {
     $arr = array('appName' => 'tolistapi', 'version' => '1.0.0');
     return json_encode($arr);
 });

@@ -17,7 +17,7 @@ class TaskControllerTest extends TestCase
      */
     public function test_should_return_the_version_info(): void
     {
-        $response = $this->getJson('/api');
+        $response = $this->getJson('/version');
         $response->assertStatus(200);
         $response->assertJson([
             'appName' => 'tolistapi', 
@@ -32,10 +32,10 @@ class TaskControllerTest extends TestCase
     {
         $quantity = mt_rand(1, 10);
         $tasks = Task::factory($quantity)->create();
-        $response = $this->getJson('/api/tasks');
-        $responseData = $response['data'];
+        $response = $this->getJson('/tasks');
 
         $response->assertStatus(200);
+        $responseData = $response['data'];
         $this->assertCount($quantity, $responseData);
         $this->assertEquals($response['total'], $quantity);
 
@@ -51,9 +51,9 @@ class TaskControllerTest extends TestCase
         if (array_key_exists('attachment', $task)) {
             $task['attachment'] = json_decode($task['attachment']);
         }
-        $response = $this->postJson('/api/tasks', $task);
-        $this->validate_task_object($task, $response['data']);
+        $response = $this->postJson('/tasks', $task);
         $response->assertStatus(201);
+        $this->validate_task_object($task, $response['data']);
     }
 
     /**
@@ -62,9 +62,9 @@ class TaskControllerTest extends TestCase
     public function test_should_return_the_details_of_a_specific_task(): void
     {
         $task = Task::factory()->create()->getAttributes();
-        $response = $this->getJson('/api/tasks/' . strval($task['id']));
-        $this->validate_task_object($task, $response['data']);
+        $response = $this->getJson("/tasks/" . strval($task['id']));
         $response->assertStatus(200);
+        $this->validate_task_object($task, $response['data']);
     }
 
     /**
@@ -79,11 +79,11 @@ class TaskControllerTest extends TestCase
             'is_completed'  => (bool)random_int(0, 1),
         ];
 
-        $response = $this->putJson('/api/tasks/' . strval($task['id']), $dataUpdated);
+        $response = $this->putJson('/tasks/' . $task['id'], $dataUpdated);
         $task['description']  = $dataUpdated['description'];
         $task['is_completed'] = $dataUpdated['is_completed'];
-        $this->validate_task_object($task, $response['data']);
         $response->assertStatus(200);
+        $this->validate_task_object($task, $response['data']);
     }
 
     /**
@@ -92,9 +92,9 @@ class TaskControllerTest extends TestCase
     public function test_should_remove_a_specific_task() : void 
     {
         $task = Task::factory()->create()->getAttributes();
-        $response = $this->deleteJson('/api/tasks/' . strval($task['id']));
-        $this->validate_task_object($task, $response['data']);
+        $response = $this->deleteJson('/tasks/' . $task['id']);
         $response->assertStatus(200);
+        $this->validate_task_object($task, $response['data']);
     }
 
     /**
@@ -103,7 +103,7 @@ class TaskControllerTest extends TestCase
     public function test_should_not_return_a_specific_task_if_uuid_is_not_correct() : void 
     {
         $faker = \Faker\Factory::create();
-        $response = $this->getJson('/api/tasks/' . $faker->uuid);
+        $response = $this->getJson('/tasks\/' . $faker->uuid);
         $response->assertStatus(404);
     }
 
@@ -118,7 +118,7 @@ class TaskControllerTest extends TestCase
             'user_id'       => $faker->uuid
         ];
 
-        $response = $this->postJson('/api/tasks', $data);
+        $response = $this->postJson('/tasks', $data);
         $response->assertStatus(400);
 
     }
@@ -134,7 +134,7 @@ class TaskControllerTest extends TestCase
             'user_id' => $faker->uuid
         ];
 
-        $response = $this->postJson('/api/tasks', $data);
+        $response = $this->postJson('/tasks', $data);
         $response->assertStatus(400);
     }
 
@@ -149,7 +149,7 @@ class TaskControllerTest extends TestCase
             'description'   => $faker->paragraph(3, true)
         ];
 
-        $response = $this->postJson('/api/tasks', $data);
+        $response = $this->postJson('/tasks', $data);
         $response->assertStatus(400);
     }    
     
@@ -164,7 +164,7 @@ class TaskControllerTest extends TestCase
            'is_completed'  => (bool)random_int(0, 1),
        ];
 
-       $response = $this->putJson('/api/tasks/' . $faker->uuid, $dataUpdated);
+       $response = $this->putJson('/tasks\/' . $faker->uuid, $dataUpdated);
        $task['description']  = $dataUpdated['description'];
        $task['is_completed'] = $dataUpdated['is_completed'];
        $response->assertStatus(404);
@@ -176,7 +176,7 @@ class TaskControllerTest extends TestCase
     public function test_should_not_delete_a_specific_task_if_uuid_is_not_correct() : void 
     {
         $faker = \Faker\Factory::create();
-        $response = $this->deleteJson('/api/tasks/' . $faker->uuid);
+        $response = $this->deleteJson('/tasks\/' . $faker->uuid);
         $response->assertStatus(404);
     }
 

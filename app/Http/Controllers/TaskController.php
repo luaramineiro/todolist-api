@@ -16,7 +16,7 @@ use App\Models\Task;
 {
     /**
      * @OA\Get(
-     *     path="/api/tasks",
+     *     path="/tasks",
      *     tags={"To-do List"},
      *     description="Returns the list of all tasks.",
      *     @OA\Response(
@@ -109,7 +109,7 @@ use App\Models\Task;
 
     /**
      * @OA\Post(
-     *     path="/api/tasks",
+     *     path="/tasks",
      *     tags={"To-do List"},
      *     description="Creates a new task.",
      *     @OA\RequestBody(
@@ -215,7 +215,7 @@ use App\Models\Task;
     
     /**
      * @OA\Get(
-     *     path="/api/tasks/{id}",
+     *     path="/tasks/{id}",
      *     tags={"To-do List"}, 
      *     description="Returns the details of a specific task.",
      *     @OA\Parameter(
@@ -312,7 +312,7 @@ use App\Models\Task;
     /**
      * 
      * @OA\Put(
-     *     path="/api/tasks/{id}",
+     *     path="/tasks/{id}",
      *     tags={"To-do List"},
      *     description="Updates the details of a specific task.",
      *     @OA\Parameter(
@@ -437,7 +437,7 @@ use App\Models\Task;
     
     /**
      * @OA\Delete(
-     *     path="/api/tasks/{id}",
+     *     path="/tasks/{id}",
      *     tags={"To-do List"},
      *     description="Removes a specific task.",
      *     @OA\Parameter(

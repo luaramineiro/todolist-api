@@ -1,6 +1,9 @@
 # John Task List
 RESTful API for a task management application (to-do list).
 
+## Base URL to production
+* `https://todolist-api-luaramineiro.vercel.app/api`
+
 ## System requirements to run locally
 * Install [PHP](https://www.php.net/manual/en/install.php) `^8.1`
 * Install [Composer](https://getcomposer.org)
