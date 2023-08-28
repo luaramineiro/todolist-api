@@ -272,6 +272,20 @@ use App\Models\Task;
      *         )
      *     ),
      *     @OA\Response(
+     *         response=404,
+     *         description="Not Found",
+     *         @OA\JsonContent(
+     *              @OA\Examples(
+     *                  example="result", 
+     *                  summary="An result object.",
+     *                  value={
+     *                      "status" : "404",
+     *                      "message" : "Task with id {id} not found",
+     *                  }
+     *              )
+     *         )
+     *     ),
+     *     @OA\Response(
      *         response=500,
      *         description="Internal Server Error",
      *         @OA\JsonContent(
@@ -375,6 +389,20 @@ use App\Models\Task;
      *         )
      *     ),
      *     @OA\Response(
+     *         response=404,
+     *         description="Not Found",
+     *         @OA\JsonContent(
+     *              @OA\Examples(
+     *                  example="result", 
+     *                  summary="An result object.",
+     *                  value={
+     *                      "status" : "404",
+     *                      "message" : "Task with id {id} not found",
+     *                  }
+     *              )
+     *         )
+     *     ),
+     *     @OA\Response(
      *         response=500,
      *         description="Internal Server Error",
      *         @OA\JsonContent(
@@ -463,6 +491,20 @@ use App\Models\Task;
      *                  value={
      *                      "status" : "400",
      *                      "message" : "error message",
+     *                  }
+     *              )
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=404,
+     *         description="Not Found",
+     *         @OA\JsonContent(
+     *              @OA\Examples(
+     *                  example="result", 
+     *                  summary="An result object.",
+     *                  value={
+     *                      "status" : "404",
+     *                      "message" : "Task with id {id} not found",
      *                  }
      *              )
      *         )
