@@ -44,7 +44,7 @@ RESTful API for a task management application (to-do list).
 >:warning: It was not clear from the specification which field should be a required field, size or type to model a database and code the validations to be returned to users based on requirements.
 
 ## TO-DO
-- [ ] Create a user authentication to do not need pass the `user_id` as a parameter at `POST` endpoint
+- [ ] Create an user authentication to do not need pass the `user_id` as a parameter at `POST` endpoint
 - [ ] Write the `swagger` documentation in less lines
 - [ ] Write a test case to coverage the `attachment` field is null
 - [ ] Write a test case to coverage the `Exceptions/Handler::class`
