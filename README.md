@@ -3,6 +3,7 @@ RESTful API for a task management application (to-do list).
 
 ## Base URL to production
 * `https://todolist-api-luaramineiro.vercel.app/api`
+* Video of the api running is uploaded [here](public/video-2023-08-28.mov)
 
 ## System requirements to run locally
 * Install [PHP](https://www.php.net/manual/en/install.php) `^8.1`
