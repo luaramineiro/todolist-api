@@ -95,7 +95,7 @@
                                     "result": {
                                         "summary": "An result object.",
                                         "value": {
-                                            "status": "500",
+                                            "status": "400",
                                             "message": "error message"
                                         }
                                     }
@@ -206,7 +206,7 @@
                                     "result": {
                                         "summary": "An result object.",
                                         "value": {
-                                            "status": "500",
+                                            "status": "400",
                                             "message": "error message"
                                         }
                                     }
@@ -300,8 +300,25 @@
                                     "result": {
                                         "summary": "An result object.",
                                         "value": {
-                                            "status": "500",
+                                            "status": "400",
                                             "message": "error message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "status": "404",
+                                            "message": "Task with id {id} not found"
                                         }
                                     }
                                 }
@@ -414,8 +431,25 @@
                                     "result": {
                                         "summary": "An result object.",
                                         "value": {
-                                            "status": "500",
+                                            "status": "400",
                                             "message": "error message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "status": "404",
+                                            "message": "Task with id {id} not found"
                                         }
                                     }
                                 }
@@ -506,8 +540,25 @@
                                     "result": {
                                         "summary": "An result object.",
                                         "value": {
-                                            "status": "500",
+                                            "status": "400",
                                             "message": "error message"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "examples": {
+                                    "result": {
+                                        "summary": "An result object.",
+                                        "value": {
+                                            "status": "404",
+                                            "message": "Task with id {id} not found"
                                         }
                                     }
                                 }
